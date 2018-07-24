@@ -3,3 +3,4 @@
 *.cs linguist-language=C#
 *.js linguist-language=C#
 *.sln linguist-language=C#
+*.css linguist-language=C# 
