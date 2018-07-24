@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Assets/JS/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#btnInit").click(function() {
+                $.post("/test/Init",
+                    {
+                        num: $("#txtCount").val() 
+                    },
+                    function(data) {
+                        alert(data);
+                    });
+            });
+
+            $("#btnExport").click(function() {
+                window.open("/test/Export?num=" + $("#rowsCount").val());
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <label>生成数据数量:</label><input type="number" id="txtCount" />
+        <button id="btnInit">生成数据</button>
+        <br />
+        <label>导出数据，每个sheet数据行数:</label><input type="number" id="rowsCount" />
+        <button id="btnExport">导出数据</button>
+        @*<a href="/test/Export?num=20">导出数据</a>*@
+    </div>
+</body>
+</html>
